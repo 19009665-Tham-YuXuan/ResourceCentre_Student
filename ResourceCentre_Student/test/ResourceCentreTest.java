@@ -116,8 +116,8 @@ public class ResourceCentreTest {
 		// from the SourceCentre
 		allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
 
-		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
-		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n", "CB0012", "SAMSUNG Chromebook 4+",  "Yes", "", "Win 10");
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "CB0011", "My Google Chromebook 1st", "Mac OS", "Yes", "");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n", "CB0012", "SAMSUNG Chromebook 4+", "Win 10", "Yes", "");
 
 		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
 	}
