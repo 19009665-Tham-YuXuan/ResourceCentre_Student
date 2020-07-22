@@ -104,14 +104,14 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void doLoanCamcorderTest() {
-		//fail("Not yet implemented");
+	public void doLoanCamcorderTest() { //done by Vivian
+		// fail ("Not yet implmented"");
 		// write your code here
-		// Item list is not null, so that items can be loaned. 
+		// Item list is not null, so that items can be loaned. (Boundary) 
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 		
-		//AssetTag entered does not match, item should not be loaned.
-		assertFalse("Test that when asset tag does not match, Camcorder is not loaned", camcorderList.get(0).getIsAvailable());
+		//Item that is available item can be loaned. 
+		assertFalse("Test that only available items are for loan", camcorderList.get(0).getIsAvailable());
 		
 	}
 	
