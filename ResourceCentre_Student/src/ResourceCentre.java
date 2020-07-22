@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ResourceCentre {
 
@@ -228,7 +230,7 @@ public class ResourceCentre {
 		}
 	}
 
-	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
+	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) { //done by Vivian
 		// write your code here
 		boolean isLoaned = false;
 
@@ -246,19 +248,32 @@ public class ResourceCentre {
 		return isLoaned;
 	}
 
-	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
+	public static void loanChromebook(ArrayList<Chromebook> chromebookList) { //done by Vivian
 		// write your code here
-
+		boolean validDate = false;
+		Boolean isLoaned = false;
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
-		String due = Helper.readString("Enter due date > ");
+		while (validDate == false) {
+			String due = Helper.readString("Enter due date (YYYY-MM-DD) > ");
+			
+			//Checking if due date entered is before current date
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
+			LocalDate dueDate = LocalDate.parse(due, formatter);
+			if (dueDate.isBefore(LocalDate.now())) {
+				System.out.println("Please enter a valid date in the given format.");
+			
+			//Checking if due date entered is on current date
+			} else if (dueDate.isEqual(LocalDate.now())) {
+				System.out.println("Please enter a valid date in the given format.");
+			
+			} else {
+				isLoaned = doLoanChromebook(chromebookList, tag, due);
+				validDate = true;
+			}
+			
+		}
 		
-		//Checking if due date entered is before current dates
-		
-		
-		
-		
-		Boolean isLoaned = doLoanChromebook(chromebookList, tag, due);
 		if (isLoaned == false) {
 			System.out.println("Invalid asset tag");
 		} else {
