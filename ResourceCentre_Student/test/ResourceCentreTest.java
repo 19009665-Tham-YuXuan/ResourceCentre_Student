@@ -98,7 +98,7 @@ public class ResourceCentreTest {
 		// Test if Item list is not null but empty, so that can add a new item
 		assertNotNull("Test if there is valid Chromebook arraylist to add to", camcorderList);
 
-		// test if the list of chrmebook retrieved from the SourceCentre is empty
+		// test if the list of chromebook retrieved from the SourceCentre is empty
 		String allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
@@ -119,32 +119,20 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-<<<<<<< HEAD
 	public void doLoanCamcorderTest() {
 		// fail("Not yet implemented");
-=======
+	}
+	
 	public void doLoanCamcorderTest() { //done by Vivian
-		// fail ("Not yet implmented"");
->>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
-		// write your code here
-<<<<<<< HEAD
-		// Item list is not null, so that items can be loaned.
-=======
-		// Item list is not null, so that items can be loaned. (Boundary) 
->>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
-		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
-<<<<<<< HEAD
-
-=======
-		
+		// fail("Not yet implemented");
+	}
 		//Item that is available item can be loaned. 
 		assertFalse("Test that only available items are for loan", camcorderList.get(0).getIsAvailable());
 		
->>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
-	}
+
 
 	@Test
-	public void doLoanChromebookTest() { //done by Yu Xuan
+	public void doLoanChromebookTest() { //done by Vivian
 		// fail("Not yet implemented");
 		assertNotNull("Test if there is valid Chromebook arraylist to loan items from", chromebookList);
 	}
