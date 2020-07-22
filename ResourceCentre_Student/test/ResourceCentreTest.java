@@ -141,6 +141,16 @@ public class ResourceCentreTest {
 		LocalDate currentDate = LocalDate.now();
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", currentDate.toString());
 		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
+		
+		//Test that an item that is unavailable cannot be loaned
+		ResourceCentre.addCamcorder(camcorderList, cc2);
+		cc2.setIsAvailable(false);
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", acceptedDueDate.toString());
+		assertFalse("Test that an unavailable item cannot be loaned", condition);
+		
+		//Test that an item that is not in the list cannot be loaned
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", acceptedDueDate.toString());
+		assertFalse("Test that an item that is not on the list cannot be loaned", condition);
 	}
 
 	@Test
