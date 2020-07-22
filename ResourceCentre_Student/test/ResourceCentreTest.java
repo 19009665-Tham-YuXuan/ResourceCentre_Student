@@ -91,6 +91,9 @@ public class ResourceCentreTest {
 		// Item list is not null, so that items can be loaned. 
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 		
+		//AssetTag entered does not match, item should not be loaned.
+		assertFalse("Test that when asset tag does not match, Camcorder is not loaned", camcorderList.get(0).getIsAvailable());
+		
 	}
 	
 	@Test
