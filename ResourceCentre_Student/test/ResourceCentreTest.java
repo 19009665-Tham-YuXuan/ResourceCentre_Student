@@ -126,36 +126,61 @@ public class ResourceCentreTest {
 		// fail("Not yet implemented");
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 
-		//Test if an item that is available item can be loaned
+		//Test if a Camcorder that is available can be loaned
 		LocalDate acceptedDueDate = LocalDate.now().plusDays(1);
 		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", acceptedDueDate.toString());
-		assertFalse("Test an available item can be loaned", condition);
+		assertFalse("Test an available Camcorder can be loaned", condition);
 		
-		//Test if an item that has a due date before the current date cannot be loaned
+		//Test if a Camcorder that has a due date before the current date cannot be loaned
 		LocalDate rejectedDueDate = LocalDate.now().minusDays(1);
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", rejectedDueDate.toString());
-		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
+		assertFalse("Test that a Camcorder that has a due date before the current date cannot be loaned", condition);
 		
-		//Test that an item that has a due date on the current date cannot be loaned
+		//Test that a Camcorder that has a due date on the current date cannot be loaned
 		LocalDate currentDate = LocalDate.now();
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", currentDate.toString());
-		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
+		assertFalse("Test that a Camcorder that has a due date before the current date cannot be loaned", condition);
 		
-		//Test that an item that is unavailable cannot be loaned
+		//Test that a Camcorder that is unavailable cannot be loaned
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		cc2.setIsAvailable(false);
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", acceptedDueDate.toString());
-		assertFalse("Test that an unavailable item cannot be loaned", condition);
+		assertFalse("Test that an unavailable Camcorder cannot be loaned", condition);
 		
-		//Test that an item that is not in the list cannot be loaned
+		//Test that a Camcorder that is not in the list cannot be loaned
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", acceptedDueDate.toString());
-		assertFalse("Test that an item that is not on the list cannot be loaned", condition);
+		assertFalse("Test that a Camcorder that is not on the list cannot be loaned", condition);
 	}
 
 	@Test
 	public void doLoanChromebookTest() { //done by Vivian
 		// fail("Not yet implemented");
 		assertNotNull("Test if there is valid Chromebook arraylist to loan items from", chromebookList);
+
+		//Test if a Chromebook that is available item can be loaned
+		LocalDate acceptedDueDate = LocalDate.now().plusDays(1);
+		boolean condition = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", acceptedDueDate.toString());
+		assertFalse("Test an available Chromebook can be loaned", condition);
+		
+		//Test if a Chromebook that has a due date before the current date cannot be loaned
+		LocalDate rejectedDueDate = LocalDate.now().minusDays(1);
+		condition = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", rejectedDueDate.toString());
+		assertFalse("Test that a Chromebook that has a due date before the current date cannot be loaned", condition);
+		
+		//Test that a Chromebook that has a due date on the current date cannot be loaned
+		LocalDate currentDate = LocalDate.now();
+		condition = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", currentDate.toString());
+		assertFalse("Test that a Chromebook that has a due date before the current date cannot be loaned", condition);
+		
+		//Test that a Chromebook that is unavailable cannot be loaned
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		cb2.setIsAvailable(false);
+		condition = ResourceCentre.doLoanChromebook(chromebookList, "CB0012", acceptedDueDate.toString());
+		assertFalse("Test that an unavailable Chromebook cannot be loaned", condition);
+		
+		//Test that a Chromebook that is not in the list cannot be loaned
+		condition = ResourceCentre.doLoanChromebook(chromebookList, "CC0013", acceptedDueDate.toString());
+		assertFalse("Test that a Chromebook that is not on the list cannot be loaned", condition);
 		
 	}
 
