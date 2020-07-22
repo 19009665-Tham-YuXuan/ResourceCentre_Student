@@ -62,6 +62,7 @@ public class ResourceCentreTest {
 		assertEquals("Test if that Chromebook arraylist size is 1?", 1, chromebookList.size());
 
 		// The item just added is as same as the first item of the list
+		assertEquals("Test that Chromebook arraylist size is 1", 1, chromebookList.size());
 		assertSame("Test that Chromebook is added same as 1st item of the list?", cc1, chromebookList.get(0));
 
 		// Add another item. test The size of the list is 2?
@@ -138,7 +139,7 @@ public class ResourceCentreTest {
 		
 		//Test that an item that has a due date on the current date cannot be loaned
 		LocalDate currentDate = LocalDate.now();
-		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", rejectedDueDate.toString());
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", currentDate.toString());
 		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
 	}
 
