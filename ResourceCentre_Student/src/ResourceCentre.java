@@ -143,15 +143,17 @@ public class ResourceCentre {
 				"DUE DATE", "OPTICAL ZOOM");
 		output += retrieveAllCamcorder(camcorderList);
 		System.out.println(output);
+		
 	}
 
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) { // done by Yu Xuan
 		String output = "";
 		for (int i = 0; i < chromebookList.size(); i++) {
-			output += String.format("%-10s %-30s %-20s %-10s %-10s\n", chromebookList.get(i).getAssetTag(),
-					chromebookList.get(i).getDescription(), chromebookList.get(i).getOs(),
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
+					chromebookList.get(i).getDescription(),
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
-					chromebookList.get(i).getDueDate());
+					chromebookList.get(i).getDueDate(), chromebookList.get(i).getOs());
+					
 		}
 		return output;
 	}
@@ -159,9 +161,10 @@ public class ResourceCentre {
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) { // done by Yu Xuan
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
 		String output1 = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
-				"OPERATION SYSTEM", "AVAILABLE", "DUE DATE");
+				"AVAILABLE", "DUE DATE", "OPERATING SYSTEM");
 		output1 += retrieveAllChromebook(chromebookList);
 		System.out.println(output1);
+
 	}
 
 	// ================================= Option 2 Add
@@ -177,7 +180,6 @@ public class ResourceCentre {
 	}
 
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
-
 		camcorderList.add(cc);
 		System.out.println("Camcorder added");
 	}
@@ -252,7 +254,7 @@ public class ResourceCentre {
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
 		
-		//Checking if due date entered is before current datess
+		//Checking if due date entered is before current dates
 		
 		
 		
