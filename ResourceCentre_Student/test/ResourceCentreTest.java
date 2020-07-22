@@ -35,14 +35,16 @@ public class ResourceCentreTest {
 	@Test
 	public void addCamcorderTest() {
 		// Item list is not null, so that can add a new item
-		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		assertNotNull("Check if there is a valid Camcorder arraylist to add to", camcorderList);
 
 		// Given an empty list, after adding 1 item, the size of the list is 1
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
 
-		// The item just added is as same as the first item of the list
-		assertSame("Test that Camcorder is added same as 1st item of the list?", cc1, camcorderList.get(0));
+		// Given an empty list, after adding 1, the size of the list is 1
+		// The item just added is the same as the first item of the list
+		assertEquals("Test that Camcorder arraylist size is 1", 1, camcorderList.size());
+		assertSame("Test that the Camcorder is added", cc1, camcorderList.get(0));
 
 		// Add another item. test The size of the list is 2?
 		ResourceCentre.addCamcorder(camcorderList, cc2);
@@ -124,17 +126,20 @@ public class ResourceCentreTest {
 		// fail("Not yet implemented");
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 
-		//Test if an item that is available item can be loaned.
+		//Test if an item that is available item can be loaned
 		LocalDate acceptedDueDate = LocalDate.now().plusDays(1);
 		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", acceptedDueDate.toString());
 		assertFalse("Test an available item can be loaned", condition);
 		
-		//Test if an item that has a due date before current date cannot be loaned.
+		//Test if an item that has a due date before the current date cannot be loaned
 		LocalDate rejectedDueDate = LocalDate.now().minusDays(1);
 		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", rejectedDueDate.toString());
 		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
 		
-		//Test 
+		//Test that an item that has a due date on the current date cannot be loaned
+		LocalDate currentDate = LocalDate.now();
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", rejectedDueDate.toString());
+		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
 	}
 
 	@Test
