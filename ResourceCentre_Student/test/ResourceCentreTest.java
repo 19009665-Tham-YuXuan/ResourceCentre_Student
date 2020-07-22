@@ -124,6 +124,7 @@ public class ResourceCentreTest {
 	@Test
 	public void doLoanCamcorderTest() { //done by Vivian
 		// fail("Not yet implemented");
+		// Test that Camcorder list is not null, so that item can be loaned
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 
 		//Test if a Camcorder that is available can be loaned
@@ -155,6 +156,7 @@ public class ResourceCentreTest {
 	@Test
 	public void doLoanChromebookTest() { //done by Vivian
 		// fail("Not yet implemented");
+		// Test that Chromebook list is not null, so that item can be loaned
 		assertNotNull("Test if there is valid Chromebook arraylist to loan items from", chromebookList);
 
 		//Test if a Chromebook that is available item can be loaned
@@ -185,16 +187,47 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void doReturnCamcorderTest() {
+	public void doReturnCamcorderTest() { // done by Vivian
 		// fail("Not yet implemented");
 		// write your code here
-
+		//Test that Camcorder list is not null, so that item can be loaned
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		assertNotNull("Test if there is valid Camcorder list to add to", camcorderList);
+		
+		//Test if Camcorder that is available cannot be returned
+		boolean condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0011");
+		assertFalse("Test if Camcorder that is available cannot be returned", condition);
+		
+		//Test if loaned out Camcorder can be returned
+		cc2.setIsAvailable(false);
+		condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0012");
+		assertTrue("Test if if loaned out Camcorder can be returned", condition);
+		
+		//Test that a Camcorder that is not in the list cannot be loaned
+		condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0013");
+		assertFalse("Test that a Camcorder that is not in the list cannot be loaned", condition);
 	}
 
 	@Test
-	public void doReturnChromebookTest() {
+	public void doReturnChromebookTest() { //done by Vivian
 		// fail("Not yet implemented");
 		// write your code here
+		//Test that Chromebook list is not null, so that item can be loaned
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		assertNotNull("Test if there is valid Chromebook list to add to", chromebookList);
+		
+		//Test if Chromebook that is available cannot be returned
+		boolean condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0011");
+		assertFalse("Test if Chromebook that is available cannot be returned", condition);
+		
+		//Test if loaned out Chromebook can be returned
+		cb2.setIsAvailable(false);
+		condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0012");
+		assertTrue("Test if if loaned out Chromebook can be returned", condition);
+		
+		//Test that a Chromebook that is not in the list cannot be loaned
+		condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0013");
+		assertFalse("Test that a Chromebook that is not in the list cannot be loaned", condition);
 	}
 
 	@After
