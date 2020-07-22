@@ -222,7 +222,7 @@ public class ResourceCentreTest {
 		assertFalse("Test if Chromebook that is available cannot be returned", condition);
 		
 		//Test if loaned out Chromebook can be returned
-		ResourceCentre.addCamcorder(camcorderList, cc2);
+		ResourceCentre.addChromebook(chromebookList, cb2);
 		cb2.setIsAvailable(false);
 		condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0012");
 		assertTrue("Test if loaned out Chromebook can be returned", condition);
