@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -124,8 +125,12 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 
 		//Test if an item that is available item can be loaned.
-		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "29/7/2020");
+		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "2020/7/22");
 		assertFalse("Test an available item can be loaned", condition);
+		
+		//Test if an item that has a due date before current date cannot be loaned.
+		LocalDate currentDate = LocalDate.now();
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", currentDate.toString());
 	}
 
 	@Test
