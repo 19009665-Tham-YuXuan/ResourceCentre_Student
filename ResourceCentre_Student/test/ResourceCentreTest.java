@@ -119,12 +119,28 @@ public class ResourceCentreTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void doLoanCamcorderTest() {
 		// fail("Not yet implemented");
+=======
+	public void doLoanCamcorderTest() { //done by Vivian
+		// fail ("Not yet implmented"");
+>>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
 		// write your code here
+<<<<<<< HEAD
 		// Item list is not null, so that items can be loaned.
+=======
+		// Item list is not null, so that items can be loaned. (Boundary) 
+>>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
+<<<<<<< HEAD
 
+=======
+		
+		//Item that is available item can be loaned. 
+		assertFalse("Test that only available items are for loan", camcorderList.get(0).getIsAvailable());
+		
+>>>>>>> branch 'master' of https://github.com/19009665-Tham-YuXuan/ResourceCentre_Student.git
 	}
 
 	@Test
