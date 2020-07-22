@@ -79,7 +79,7 @@ public class ResourceCentreTest {
 		
 	}
 	@Test
-	public void retrieveAllChromebookTest() { //done by Yu Xuan
+	public void retrieveAllChromebookTest() {  //done by Yu Xuan
 		//fail("Not yet implemented");
 		// Test if Item list is not null but empty, so that can add a new item
 		assertNotNull("Test if there is valid Chromebook arraylist to add to", camcorderList);
