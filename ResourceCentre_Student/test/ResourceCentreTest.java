@@ -125,12 +125,16 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 
 		//Test if an item that is available item can be loaned.
-		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "2020/7/22");
+		LocalDate acceptedDueDate = LocalDate.now().plusDays(1);
+		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", acceptedDueDate.toString());
 		assertFalse("Test an available item can be loaned", condition);
 		
 		//Test if an item that has a due date before current date cannot be loaned.
-		LocalDate currentDate = LocalDate.now();
-		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", currentDate.toString());
+		LocalDate rejectedDueDate = LocalDate.now().minusDays(1);
+		condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", rejectedDueDate.toString());
+		assertFalse("Test that an item that has a due date before the current date cannot be loaned", condition);
+		
+		//Test 
 	}
 
 	@Test
