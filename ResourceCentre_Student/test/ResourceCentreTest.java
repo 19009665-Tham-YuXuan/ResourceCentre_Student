@@ -110,8 +110,9 @@ public class ResourceCentreTest {
 		// Item list is not null, so that items can be loaned. (Boundary) 
 		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 		
-		//Item that is available item can be loaned. 
-		assertFalse("Test that only available items are for loan", camcorderList.get(0).getIsAvailable());
+		//Item that is available item can be loaned.
+		boolean condition = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "29/7/2020");
+		assertFalse("Test an available item can be loaned", condition);
 		
 	}
 	
