@@ -107,6 +107,8 @@ public class ResourceCentreTest {
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		// Item list is not null, so that items can be loaned. 
+		assertNotNull("Test if there is valid Camcorder arraylist to loan items from", camcorderList);
 		
 	}
 	
