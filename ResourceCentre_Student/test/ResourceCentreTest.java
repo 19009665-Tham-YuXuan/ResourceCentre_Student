@@ -191,17 +191,17 @@ public class ResourceCentreTest {
 		// fail("Not yet implemented");
 		// write your code here
 		//Test that Camcorder list is not null, so that item can be loaned
-		ResourceCentre.addCamcorder(camcorderList, cc1);
 		assertNotNull("Test if there is valid Camcorder list to add to", camcorderList);
 		
 		//Test if Camcorder that is available cannot be returned
+		ResourceCentre.addCamcorder(camcorderList, cc1);
 		boolean condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0011");
 		assertFalse("Test if Camcorder that is available cannot be returned", condition);
 		
 		//Test if loaned out Camcorder can be returned
 		cc2.setIsAvailable(false);
 		condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0012");
-		assertTrue("Test if if loaned out Camcorder can be returned", condition);
+		assertTrue("Test if loaned out Camcorder can be returned", condition);
 		
 		//Test that a Camcorder that is not in the list cannot be loaned
 		condition = ResourceCentre.doReturnCamcorder(camcorderList,"CC0013");
@@ -213,17 +213,17 @@ public class ResourceCentreTest {
 		// fail("Not yet implemented");
 		// write your code here
 		//Test that Chromebook list is not null, so that item can be loaned
-		ResourceCentre.addChromebook(chromebookList, cb1);
 		assertNotNull("Test if there is valid Chromebook list to add to", chromebookList);
 		
 		//Test if Chromebook that is available cannot be returned
+		ResourceCentre.addChromebook(chromebookList, cb1);
 		boolean condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0011");
 		assertFalse("Test if Chromebook that is available cannot be returned", condition);
 		
 		//Test if loaned out Chromebook can be returned
 		cb2.setIsAvailable(false);
 		condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0012");
-		assertTrue("Test if if loaned out Chromebook can be returned", condition);
+		assertTrue("Test if loaned out Chromebook can be returned", condition);
 		
 		//Test that a Chromebook that is not in the list cannot be loaned
 		condition = ResourceCentre.doReturnChromebook(chromebookList,"CB0013");
