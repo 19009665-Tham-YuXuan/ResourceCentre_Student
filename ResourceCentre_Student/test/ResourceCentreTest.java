@@ -147,6 +147,7 @@ public class ResourceCentreTest {
 	public void doLoanChromebookTest() { //done by Vivian
 		// fail("Not yet implemented");
 		assertNotNull("Test if there is valid Chromebook arraylist to loan items from", chromebookList);
+		
 	}
 
 	@Test
